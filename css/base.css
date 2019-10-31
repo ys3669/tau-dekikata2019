@@ -1,12 +1,12 @@
 :root {
-    --cWhite: #e0d8cb;
-    --cOcher: #927c26;
+    --cWhite: #D7D1C6;
+    --cOcher: #7C6925;
 
-    --cBlack: #000;
-    --cMorocco: #322411;
-    --cGlold: #836f3e;
-    --cBlod: #aea35a;
-    --cMouse: #756a5d;
+    --cBlack: #000000;
+    --cMorocco: #34230C;
+    --cGlold: #6E592A;
+    --cBlod: #AD9E50;
+    --cMouse: #796D5F;
   }
 body{
     position:static;
