@@ -1,0 +1,56 @@
+:root {
+    --cWhite: #e0d8cb;
+    --cOcher: #927c26;
+
+    --cBlack: #000;
+    --cMorocco: #322411;
+    --cGlold: #836f3e;
+    --cBlod: #aea35a;
+    --cMouse: #756a5d;
+  }
+body{
+    position:static;
+    text-align: center;
+    background: var(--cBlack);
+    color: var(--cWhite);
+    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+
+}
+.white{
+    background-color: #00000033;
+}
+section{
+ position: static;
+}
+section#Title{
+    position:relative;
+    z-index: 999;
+    font-size:5.3rem;
+}
+p.date{
+    font-size: 2.0rem;
+    color: var(--cOcher);
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.75));
+}
+section#Title > div.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    /*background-color: var(--cMouse);*/
+    color: var(--cWhite);
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.75));
+}
+section#Title > div.container > h2{
+    margin-bottom: 0;
+}
+#mainVisual{
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
+
+#gmap {
+	width: 300px ;
+	height: 300px ;
+}
