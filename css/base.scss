@@ -1,0 +1,429 @@
+:root {
+  --cWhite: #D7D1C6;
+  --cOcher: #7C6925;
+  --cBlack: #000000;
+  --cMorocco: #34230C;
+  --cGlold: #6E592A;
+  --cBlod: #AD9E50;
+  --cMouse: #796D5F;
+
+  --cDiseble: #92918e;
+
+}
+
+//==========================================
+//animation 
+//==========================================
+@keyframes down {
+  to {
+    top: 0
+  }
+
+  50% {
+    top: -10px
+  }
+}
+
+//==========================================
+//responsive query
+//==========================================
+$widthPC: 960px;
+$widthTab: 959px;
+$widthSp: 559px;
+
+@mixin tab {
+  @media screen and (min-width: $widthTab) and (max-width: ($widthPC)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: ($widthSp)) {
+    @content;
+  }
+}
+
+//==========================================
+//elements css"s" 
+//==========================================
+html {
+  font-size: 8px;
+
+  @include sp {
+    font-size: 8px;
+  }
+
+  ;
+}
+
+body {
+  position: static;
+  width: 100vw;
+  height: 100vh;
+  background: var(--cBlack);
+  color: var(--cWhite);
+
+  text-align: center;
+  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+}
+
+a {
+  color: var(--cWhite);
+}
+  a:hover {
+    color: var(--cWhite);
+  }
+
+.headerVisual {
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  height: 50%;
+
+  svg {
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+
+  }
+}
+
+.leaf {
+  position: relative;
+  display: inline-block;
+  background-color: var(--cDiseble);
+  // background: #F4F3EE; //== Active
+  border: 2px solid #998949;
+  box-sizing: border-box;
+  border-radius: 0px 73.5px;
+}
+
+nav {
+  position: fixed;
+  text-align: right;
+
+  @include sp {
+    display: none;
+  }
+
+  bottom: 40px;
+  right: 40px;
+  z-index: 5;
+
+  ul {
+    li {
+      margin: 1rem;
+      display: inline;
+      font-size: 2rem;
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: rgba(199, 186, 157, 0.5); //Alpha50%
+      }
+
+      a.current {
+        color: var(--cMouse); //Alpha100%
+      }
+    }
+  }
+}
+
+section {
+  position: static;
+  height: 100vh;
+
+  border: 1px solid honeydew;
+
+  @include sp {
+    border: 1px solid aqua;
+  }
+
+
+  .logo {
+    padding-top: 5%;
+    width: 14rem;
+    height: 14rem;
+
+    @include sp {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    line-height: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+
+
+    color: var(--cOcher);
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+//==========================================
+//id css"s" 
+//==========================================
+
+#Title {
+  position: relative;
+  z-index: 1;
+
+  .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%);
+
+    color: var(--cWhite);
+
+    h1 {
+      font-weight: bold;
+      font-size: 10rem;
+      display: inline;
+
+      @include sp {
+        font-size: 5rem;
+      }
+    }
+
+    h2 {
+      color: var(--cWhite);
+      font-size: 3rem;
+      line-height: 28px;
+      margin-bottom: 8rem;
+
+      @include sp {
+        font-size: 2rem;
+
+      }
+    }
+
+    .date {
+      margin-top: 4rem;
+
+      p {
+        line-height: 1em;
+        font-size: 4.5rem;
+        color: var(--cOcher);
+
+        @include sp {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  .down {
+    @include sp {
+      display: none
+    }
+
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 30px;
+
+    .downicon {
+      @include sp {
+        display: none
+      }
+
+      position: absolute;
+      transform-style: preserve-3d;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+
+      animation: down 1.3s infinite;
+    }
+  }
+}
+
+//==========//
+#Description {
+  height: auto;
+
+  .summary {
+    img {
+      padding-top: 0%;
+    }
+
+    height: auto;
+
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 3%;
+    background-color: #34230C;
+
+
+    @include sp {
+      margin-top: 5%;
+      margin-bottom: 5%;
+
+      height: auto;
+
+      padding: 0%;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+
+      p {
+        line-height: 4rem;
+        display: inline;
+
+      }
+    }
+
+    ;
+  }
+
+}
+
+//==========//
+#Concept {
+  .container {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+}
+
+//==========//
+#Members {
+  height: 50vh;
+
+  a {
+    margin: 10rem 10rem;
+    font-size: 5rem;
+    color: #34230C;
+    white-space: nowrap;
+
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+//==========//
+#Event {
+  height: 50vh; //if active ==del
+
+  a {
+    margin: 10rem 10rem;
+    font-size: 5rem;
+    color: #34230C;
+    white-space: nowrap;
+
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+
+  @include sp {
+    font-size: 2.5rem;
+  }
+}
+
+//==========//
+#Access {
+  @include sp {
+    display: block;
+    position: static;
+    height: auto;
+  }
+
+  ol {
+    font-size: 2rem;
+    text-align: left;
+    list-style-type: none;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  ul {
+    margin: 1.5rem 0 1.5rem;
+  }
+
+  .link {
+    a {
+      display: inline-block;
+      color: var(--cMouse);
+    }
+
+    text-align: right;
+    font-size: 2rem;
+  }
+}
+
+#gmap {
+  width: 100%;
+  height: 350px;
+
+  @include sp {
+    width: 100%;
+    height: 270px;
+  }
+
+  ;
+}
+
+//==========//
+#Link {
+  .linkicon {
+    display: block;
+    height: auto;
+
+    svg {
+      width: 10rem;
+      height: 10rem;
+
+    }
+
+    img {
+      border-radius: 10rem;
+      width: 10rem;
+      height: 10rem;
+      background-color: black;
+    }
+
+    a {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+//==========//
+#End {
+  .container {
+    #mainVisual {
+
+      width: 400px;
+      height: 400px;
+      margin: 20% 0;
+
+      @include sp {
+        padding: -10%;
+        width: 80%;
+        height: 80%;
+      }
+
+      ;
+    }
+  }
+}
