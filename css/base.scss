@@ -135,13 +135,6 @@ section {
   position: static;
   height: 100vh;
 
-  border: 1px solid honeydew;
-
-  @include sp {
-    border: 1px solid aqua;
-  }
-
-
   .logo {
     padding-top: 5%;
     width: 14rem;
@@ -167,6 +160,10 @@ section {
   p {
     font-size: 2rem;
   }
+}
+footer{
+  height:10px;
+  bottom: 0%;
 }
 
 //==========================================
@@ -415,7 +412,7 @@ section {
 
       width: 400px;
       height: 400px;
-      margin: 20% 0;
+      margin-top: 10%;
 
       @include sp {
         padding: -10%;
