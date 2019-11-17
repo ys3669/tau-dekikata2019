@@ -7,7 +7,8 @@
   --cBlod: #AD9E50;
   --cMouse: #796D5F;
 
-  --cDiseble: #92918e;
+  --cVanilla: #c7ba9d;
+  --cDisable: #92918e;
 
 }
 
@@ -15,12 +16,22 @@
 //animation 
 //==========================================
 @keyframes down {
-  to {
-    top: 0
+  from {
+    top: 15px
   }
 
-  50% {
+  to {
+    top: 0px
+  }
+}
+
+@keyframes spdown {
+  from {
     top: -10px
+  }
+
+  to {
+    top: 0px
   }
 }
 
@@ -48,36 +59,37 @@ $widthSp: 559px;
 //==========================================
 html {
   font-size: 8px;
+  height: 100%;
 
   @include sp {
     font-size: 8px;
   }
-
-  ;
 }
 
 body {
   position: static;
-  width: 100vw;
-  height: 100vh;
+  width: calc(100vw -(100vw - 100%)); //blackmagic for design
+  height: 100%;
   background: var(--cBlack);
   color: var(--cWhite);
 
   text-align: center;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+  font-weight: 500;
 }
 
 a {
   color: var(--cWhite);
 }
-  a:hover {
-    color: var(--cWhite);
-  }
+
+a:hover {
+  color: var(--cWhite);
+}
 
 .headerVisual {
   position: relative;
   overflow: hidden;
-  width: auto;
+  width: 100%;
   height: 50%;
 
   svg {
@@ -85,20 +97,39 @@ a {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    width: 100%;
+    width: auto;
+    height: 75%;
 
+    @include sp {
+      width: auto;
+      height: 60%;
+    }
   }
 }
 
 .leaf {
   position: relative;
   display: inline-block;
-  background-color: var(--cDiseble);
+  background-color: var(--cDisable);
   // background: #F4F3EE; //== Active
   border: 2px solid #998949;
   box-sizing: border-box;
   border-radius: 0px 73.5px;
 }
+
+.underLine {
+  text-decoration: underline;
+}
+
+.ltd-break {
+  display: inline-block;
+  white-space: nowrap;
+
+  @include sp {
+    display: block;
+  }
+}
+
 
 nav {
   position: fixed;
@@ -133,19 +164,21 @@ nav {
 
 section {
   position: static;
-  height: 100vh;
+  height: 100%;
 
-  border: 1px solid honeydew;
+  //======
+/*
+  border: 1px solid honeydew; //dev
 
   @include sp {
     border: 1px solid aqua;
   }
-
-
+*/
+  //========
   .logo {
-    padding-top: 5%;
     width: 14rem;
     height: 14rem;
+    padding-bottom: 2rem;
 
     @include sp {
       width: 8rem;
@@ -154,23 +187,23 @@ section {
   }
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 5rem;
+    font-weight: bold;
     line-height: 2rem;
     margin-top: 4rem;
-    margin-bottom: 4rem;
-    padding-bottom: 3rem;
-
-
+    padding-bottom: 2rem;
     color: var(--cOcher);
+
+    @include sp {
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+
+    }
   }
 
   p {
     font-size: 2rem;
   }
-}
-footer{
-  height:10px;
-  bottom: 0%;
 }
 
 //==========================================
@@ -180,22 +213,28 @@ footer{
 #Title {
   position: relative;
   z-index: 1;
+  height: 100%;
+  overflow: hidden;
 
   .container {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -40%);
-
     color: var(--cWhite);
+
+    @include sp {
+      padding: 0;
+    }
 
     h1 {
       font-weight: bold;
       font-size: 10rem;
-      display: inline;
+      letter-spacing: 0.1em;
 
       @include sp {
         font-size: 5rem;
+        letter-spacing: 0em;
       }
     }
 
@@ -207,108 +246,147 @@ footer{
 
       @include sp {
         font-size: 2rem;
-
+        font-weight: 400;
+        margin-bottom: 4rem;
       }
     }
+  }
 
-    .date {
-      margin-top: 4rem;
+  .date {
+    margin-top: 4rem;
 
-      p {
-        line-height: 1em;
-        font-size: 4.5rem;
-        color: var(--cOcher);
+    p {
+      line-height: 1em;
+      font-size: 4.5rem;
+      color: var(--cOcher);
 
-        @include sp {
-          font-size: 2rem;
-        }
+      @include sp {
+        font-size: 2rem;
       }
     }
   }
 
   .down {
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+
     @include sp {
-      display: none
+      top: 45%
     }
 
-    position: absolute;
-    bottom: 25px;
-    width: 100%;
-    display: block;
-    cursor: pointer;
-    margin: 0 auto;
-    font-size: 30px;
-
     .downicon {
-      @include sp {
-        display: none
-      }
-
       position: absolute;
-      transform-style: preserve-3d;
+      display: block;
+      bottom: 60px;
+
+      width: 100%;
+      height: 100%;
+
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 64px;
-      height: 64px;
 
-      animation: down 1.3s infinite;
+      animation: down 1.5s infinite alternate;
+
+      @include sp {
+        animation: spdown 1.5s infinite alternate;
+        width: 6rem;
+        height: auto;
+      }
     }
   }
 }
 
 //==========//
 #Description {
-  height: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
+
+  height: 100vh;
+  box-sizing: border-box;
+
+  @include sp {
+    height: auto;
+  }
 
   .summary {
-    img {
-      padding-top: 0%;
-    }
-
-    height: auto;
-
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 3%;
+    height: 80%;
+    padding: 6rem;
     background-color: #34230C;
 
+    .logo {
+      padding-bottom: 2rem;
+    }
+
+    h2 {
+      margin-top: 6rem;
+      margin-bottom: 6rem;
+    }
 
     @include sp {
-      margin-top: 5%;
-      margin-bottom: 5%;
-
+      padding: 2rem;
+      padding-top: 5%;
+      padding-bottom: 5%;
       height: auto;
-
-      padding: 0%;
 
       h2 {
         margin-bottom: 2rem;
+        font-size: 2.8rem;
       }
 
       p {
         line-height: 4rem;
         display: inline;
-
       }
     }
-
-    ;
   }
-
 }
 
 //==========//
 #Concept {
-  .container {
-    margin-top: 10%;
-    margin-bottom: 10%;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  box-sizing: border-box;
+
+  .logo {
+    padding-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
+
+  @include sp {
+    padding: 2rem;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: auto;
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 2.8rem;
+    }
+
+    p {
+      line-height: 5rem;
+    }
   }
 }
 
 //==========//
 #Members {
-  height: 50vh;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  box-sizing: border-box;
+  height: 60%;
 
   a {
     margin: 10rem 10rem;
@@ -324,7 +402,10 @@ footer{
 
 //==========//
 #Event {
-  height: 50vh; //if active ==del
+  padding-top: 10%;
+  padding-bottom: 10%;
+  box-sizing: border-box;
+  height: 60%;
 
   a {
     margin: 10rem 10rem;
@@ -336,18 +417,26 @@ footer{
       font-size: 2.5rem;
     }
   }
-
-  @include sp {
-    font-size: 2.5rem;
-  }
 }
-
 //==========//
 #Access {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  box-sizing: border-box;
+
   @include sp {
     display: block;
     position: static;
     height: auto;
+  }
+
+  .listTitle {
+    color: var(--cVanilla);
+    font-weight: bold;
+  }
+
+  .axis {
+    font-weight: bold;
   }
 
   ol {
@@ -361,6 +450,7 @@ footer{
   }
 
   ul {
+    font-size: 2rem;
     margin: 1.5rem 0 1.5rem;
   }
 
@@ -383,21 +473,40 @@ footer{
     width: 100%;
     height: 270px;
   }
-
-  ;
 }
 
 //==========//
 #Link {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  box-sizing: border-box;
+  height: auto;
+  
+  .linkframe{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-items: flex-start;
+  }
+
+  .linkbox{
+    margin: 1rem;
+    flex-basis:144px;
+    overflow: hidden;
+  }
+  a {
+    font-size: 1.5rem;
+    }
   .linkicon {
     display: block;
     height: auto;
+    text-decoration: none;
 
     svg {
       width: 10rem;
       height: 10rem;
 
-    }
+  }
 
     img {
       border-radius: 10rem;
@@ -405,15 +514,16 @@ footer{
       height: 10rem;
       background-color: black;
     }
-
-    a {
-      font-size: 1.5rem;
-    }
   }
 }
 
+
 //==========//
 #End {
+  
+  position: relative;
+  height: 75vh;
+
   .container {
     #mainVisual {
 
@@ -422,12 +532,18 @@ footer{
       margin-top: 10%;
 
       @include sp {
-        padding: -10%;
+        padding: 10%;
         width: 80%;
         height: 80%;
       }
-
-      ;
     }
+  }
+
+  footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 10px;
   }
 }

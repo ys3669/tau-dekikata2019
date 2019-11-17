@@ -7,29 +7,49 @@
   --cGlold: #6E592A;
   --cBlod: #AD9E50;
   --cMouse: #796D5F;
-  --cDiseble: #92918e;
+  --cVanilla: #c7ba9d;
+  --cDisable: #92918e;
 }
 
 @-webkit-keyframes down {
-  to {
-    top: 0;
+  from {
+    top: 15px;
   }
-  50% {
-    top: -10px;
+  to {
+    top: 0px;
   }
 }
 
 @keyframes down {
-  to {
-    top: 0;
+  from {
+    top: 15px;
   }
-  50% {
+  to {
+    top: 0px;
+  }
+}
+
+@-webkit-keyframes spdown {
+  from {
     top: -10px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes spdown {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 0px;
   }
 }
 
 html {
   font-size: 8px;
+  height: 100%;
 }
 
 @media screen and (max-width: 559px) {
@@ -40,12 +60,13 @@ html {
 
 body {
   position: static;
-  width: 100vw;
-  height: 100vh;
+  width: calc(100vw -(100vw - 100%));
+  height: 100%;
   background: var(--cBlack);
   color: var(--cWhite);
   text-align: center;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+  font-weight: 500;
 }
 
 a {
@@ -59,7 +80,7 @@ a:hover {
 .headerVisual {
   position: relative;
   overflow: hidden;
-  width: auto;
+  width: 100%;
   height: 50%;
 }
 
@@ -69,17 +90,40 @@ a:hover {
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  width: 100%;
+  width: auto;
+  height: 75%;
+}
+
+@media screen and (max-width: 559px) {
+  .headerVisual svg {
+    width: auto;
+    height: 60%;
+  }
 }
 
 .leaf {
   position: relative;
   display: inline-block;
-  background-color: var(--cDiseble);
+  background-color: var(--cDisable);
   border: 2px solid #998949;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 0px 73.5px;
+}
+
+.underLine {
+  text-decoration: underline;
+}
+
+.ltd-break {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 559px) {
+  .ltd-break {
+    display: block;
+  }
 }
 
 nav {
@@ -114,20 +158,20 @@ nav ul li a.current {
 
 section {
   position: static;
-  height: 100vh;
-  border: 1px solid honeydew;
-}
+  height: 100%;
+  /*
+  border: 1px solid honeydew; //dev
 
-@media screen and (max-width: 559px) {
-  section {
+  @include sp {
     border: 1px solid aqua;
   }
+*/
 }
 
 section .logo {
-  padding-top: 5%;
   width: 14rem;
   height: 14rem;
+  padding-bottom: 2rem;
 }
 
 @media screen and (max-width: 559px) {
@@ -138,12 +182,19 @@ section .logo {
 }
 
 section h2 {
-  font-size: 3.5rem;
+  font-size: 5rem;
+  font-weight: bold;
   line-height: 2rem;
   margin-top: 4rem;
-  margin-bottom: 4rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   color: var(--cOcher);
+}
+
+@media screen and (max-width: 559px) {
+  section h2 {
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+  }
 }
 
 section p {
@@ -153,6 +204,8 @@ section p {
 #Title {
   position: relative;
   z-index: 1;
+  height: 100%;
+  overflow: hidden;
 }
 
 #Title .container {
@@ -164,15 +217,22 @@ section p {
   color: var(--cWhite);
 }
 
+@media screen and (max-width: 559px) {
+  #Title .container {
+    padding: 0;
+  }
+}
+
 #Title .container h1 {
   font-weight: bold;
   font-size: 10rem;
-  display: inline;
+  letter-spacing: 0.1em;
 }
 
 @media screen and (max-width: 559px) {
   #Title .container h1 {
     font-size: 5rem;
+    letter-spacing: 0em;
   }
 }
 
@@ -186,86 +246,107 @@ section p {
 @media screen and (max-width: 559px) {
   #Title .container h2 {
     font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
   }
 }
 
-#Title .container .date {
+#Title .date {
   margin-top: 4rem;
 }
 
-#Title .container .date p {
+#Title .date p {
   line-height: 1em;
   font-size: 4.5rem;
   color: var(--cOcher);
 }
 
 @media screen and (max-width: 559px) {
-  #Title .container .date p {
+  #Title .date p {
     font-size: 2rem;
   }
 }
 
 #Title .down {
-  position: absolute;
-  bottom: 25px;
-  width: 100%;
+  position: relative;
   display: block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   cursor: pointer;
-  margin: 0 auto;
-  font-size: 30px;
+  width: 10rem;
+  height: 10rem;
 }
 
 @media screen and (max-width: 559px) {
   #Title .down {
-    display: none;
+    top: 45%;
   }
 }
 
 #Title .down .downicon {
   position: absolute;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  display: block;
+  bottom: 60px;
+  width: 100%;
+  height: 100%;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
-  -webkit-animation: down 1.3s infinite;
-          animation: down 1.3s infinite;
+  -webkit-animation: down 1.5s infinite alternate;
+          animation: down 1.5s infinite alternate;
 }
 
 @media screen and (max-width: 559px) {
   #Title .down .downicon {
-    display: none;
+    -webkit-animation: spdown 1.5s infinite alternate;
+            animation: spdown 1.5s infinite alternate;
+    width: 6rem;
+    height: auto;
   }
 }
 
 #Description {
-  height: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media screen and (max-width: 559px) {
+  #Description {
+    height: auto;
+  }
 }
 
 #Description .summary {
-  height: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  padding: 3%;
+  height: 80%;
+  padding: 6rem;
   background-color: #34230C;
 }
 
-#Description .summary img {
-  padding-top: 0%;
+#Description .summary .logo {
+  padding-bottom: 2rem;
+}
+
+#Description .summary h2 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 @media screen and (max-width: 559px) {
   #Description .summary {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    padding: 2rem;
+    padding-top: 5%;
+    padding-bottom: 5%;
     height: auto;
-    padding: 0%;
   }
   #Description .summary h2 {
     margin-bottom: 2rem;
+    font-size: 2.8rem;
   }
   #Description .summary p {
     line-height: 4rem;
@@ -273,13 +354,44 @@ section p {
   }
 }
 
-#Concept .container {
-  margin-top: 10%;
-  margin-bottom: 10%;
+#Concept {
+  padding-top: 15%;
+  padding-bottom: 15%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#Concept .logo {
+  padding-bottom: 2rem;
+}
+
+#Concept h2 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+@media screen and (max-width: 559px) {
+  #Concept {
+    padding: 2rem;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: auto;
+  }
+  #Concept h2 {
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+  }
+  #Concept p {
+    line-height: 5rem;
+  }
 }
 
 #Members {
-  height: 50vh;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 60%;
 }
 
 #Members a {
@@ -296,7 +408,11 @@ section p {
 }
 
 #Event {
-  height: 50vh;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 60%;
 }
 
 #Event a {
@@ -312,10 +428,11 @@ section p {
   }
 }
 
-@media screen and (max-width: 559px) {
-  #Event {
-    font-size: 2.5rem;
-  }
+#Access {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media screen and (max-width: 559px) {
@@ -324,6 +441,15 @@ section p {
     position: static;
     height: auto;
   }
+}
+
+#Access .listTitle {
+  color: var(--cVanilla);
+  font-weight: bold;
+}
+
+#Access .axis {
+  font-weight: bold;
 }
 
 #Access ol {
@@ -337,6 +463,7 @@ section p {
 }
 
 #Access ul {
+  font-size: 2rem;
   margin: 1.5rem 0 1.5rem;
 }
 
@@ -362,9 +489,45 @@ section p {
   }
 }
 
+#Link {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: auto;
+}
+
+#Link .linkframe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#Link .linkbox {
+  margin: 1rem;
+  -ms-flex-preferred-size: 144px;
+      flex-basis: 144px;
+  overflow: hidden;
+}
+
+#Link a {
+  font-size: 1.5rem;
+}
+
 #Link .linkicon {
   display: block;
   height: auto;
+  text-decoration: none;
 }
 
 #Link .linkicon svg {
@@ -379,21 +542,30 @@ section p {
   background-color: black;
 }
 
-#Link .linkicon a {
-  font-size: 1.5rem;
+#End {
+  position: relative;
+  height: 75vh;
 }
 
 #End .container #mainVisual {
   width: 400px;
   height: 400px;
-  margin: 20% 0;
+  margin-top: 10%;
 }
 
 @media screen and (max-width: 559px) {
   #End .container #mainVisual {
-    padding: -10%;
+    padding: 10%;
     width: 80%;
     height: 80%;
   }
+}
+
+#End footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10px;
 }
 /*# sourceMappingURL=base.css.map */
