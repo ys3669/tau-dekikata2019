@@ -800,33 +800,7 @@
                 scaledSize: new google.maps.Size(32, 50),
             }
         });
-        var directionsService = new google.maps.DirectionsService;
-        var directionsRenderer = new google.maps.DirectionsRenderer({
-          draggable: false,
-          map: map,
-          suppressMarkers: true
-
-        });
-        //displayRoute('六本木駅', 'AXIS Gallery', directionsService,directionsRenderer);
-        displayRoute('六本木一丁目駅', 'AXIS Gallery', directionsService,directionsRenderer);
-        }
-        function displayRoute(origin, destination, service, display) {
-        service.route({
-            origin: origin,
-            destination: destination,
-            travelMode: 'WALKING',
-            avoidTolls: true,
-        }, function (response, status) {
-            display.setDirections(response);
-            if (status === 'OK') {
-                display.setDirections(response);
-            } else {
-                console.err('Err directions : ' + status);
-                console.log(response,origin,destination,status)
-            }
-        });
     }
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR_wggx9fTH-ZnySYG5b2GR5b-B7ZVxgo&callback=initMap" async
     defer></script>
