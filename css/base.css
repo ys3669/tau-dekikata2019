@@ -159,13 +159,6 @@ nav ul li a.current {
 section {
   position: static;
   height: 100%;
-  /*
-  border: 1px solid honeydew; //dev
-
-  @include sp {
-    border: 1px solid aqua;
-  }
-*/
 }
 
 section .logo {
@@ -199,6 +192,11 @@ section h2 {
 
 section p {
   font-size: 2rem;
+}
+
+footer {
+  height: 10px;
+  bottom: 0%;
 }
 
 #Title {
