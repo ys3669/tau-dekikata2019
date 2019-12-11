@@ -194,11 +194,6 @@ section p {
   font-size: 2rem;
 }
 
-footer {
-  height: 10px;
-  bottom: 0%;
-}
-
 #Title {
   position: relative;
   z-index: 1;
@@ -410,7 +405,7 @@ footer {
   padding-bottom: 10%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  height: 60%;
+  height: auto;
 }
 
 #Event a {
@@ -423,6 +418,149 @@ footer {
 @media screen and (max-width: 559px) {
   #Event a {
     font-size: 2.5rem;
+  }
+}
+
+#Event .futura {
+  font-family: Futura Sans-serif;
+}
+
+#Event h6 {
+  display: block;
+  text-align: right;
+  margin-bottom: 0rem;
+}
+
+#Event h4 {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+#Event h1 {
+  font-size: 8rem;
+}
+
+@media screen and (min-width: 959px) and (max-width: 960px) {
+  #Event h1 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  #Event h1 {
+    font-size: 4rem;
+  }
+}
+
+#Event .date {
+  color: var(--cOcher);
+  font-size: 2.5rem;
+}
+
+#Event .date .bg {
+  font-size: 3rem;
+}
+
+#Event .date .bg .sm {
+  font-size: 1rem;
+}
+
+#Event .border {
+  color: var(--cOcher);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#Event .border h2 {
+  margin: 0px;
+}
+
+#Event .border:before,
+#Event .border:after {
+  content: "";
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 4px;
+  background: var(--cOcher);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#Event .border:before {
+  margin-right: 1rem;
+}
+
+#Event .border:after {
+  margin-left: -0.5em;
+}
+
+#Event .role {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  white-space: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#Event .role h4 {
+  text-align: right;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width: 959px) and (max-width: 960px) {
+  #Event .role h4 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  #Event .role h4 {
+    font-size: 3rem;
+  }
+}
+
+#Event .role .wip {
+  font-size: 16pt;
+  color: #AAA7A4;
+  text-align: left;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (min-width: 959px) and (max-width: 960px) {
+  #Event .role .wip {
+    font-size: 4rem;
+  }
+}
+
+#Event img {
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 559px) {
+  #Event img {
+    width: 75%;
   }
 }
 
