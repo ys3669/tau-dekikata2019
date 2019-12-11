@@ -396,7 +396,7 @@ section {
   padding-top: 10%;
   padding-bottom: 10%;
   box-sizing: border-box;
-  height: 60%;
+  height: auto;
 
   a {
     margin: 10rem 10rem;
@@ -408,7 +408,119 @@ section {
       font-size: 2.5rem;
     }
   }
+
+  .futura {
+    font-family: Futura Sans-serif;
+  }
+
+  h6 {
+    display: block;
+    text-align: right;
+    margin-bottom: 0rem;
+  }
+
+  h4 {
+    text-align: right;
+    margin-bottom: 1rem;
+
+  }
+
+  h1 {
+    font-size: 8rem;
+
+    @include tab {
+      font-size: 5rem;
+    }
+
+    @include sp {
+      font-size: 4rem;
+    }
+  }
+
+  .date {
+    color: var(--cOcher);
+    font-size: 2.5rem;
+
+    .bg {
+      font-size: 3rem;
+
+      .sm {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .border {
+    color: var(--cOcher);
+    display: flex;
+    align-items: center;
+
+    h2 {
+      margin: 0px;
+    }
+  }
+
+  .border:before,
+  .border:after {
+    content: "";
+    flex-grow: 1;
+    height: 4px;
+    background: var(--cOcher);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .border:before {
+    margin-right: 1rem;
+  }
+
+  .border:after {
+    margin-left: -0.5em;
+  }
+
+  .role {
+    display: inline-flex;
+    white-space: nowrap;
+    justify-content: space-between;
+    display: flex;
+
+    h4 {
+      text-align: right;
+      justify-content: space-between;
+      display: flex;
+
+      @include tab {
+        font-size: 2rem;
+      }
+
+      @include sp {
+        font-size: 3rem;
+      }
+    }
+
+    .wip {
+      font-size: 16pt;
+      color: #AAA7A4;
+      text-align: left;
+      justify-content: space-between;
+
+      @include tab {
+        font-size: 4rem;
+      }
+
+    }
+  }
+
+  img {
+    width: 100%;
+    text-align: center;
+
+    @include sp {
+      width: 75%;
+    }
+  }
 }
+
 //==========//
 #Access {
   padding-top: 5%;
@@ -472,22 +584,24 @@ section {
   padding-bottom: 5%;
   box-sizing: border-box;
   height: auto;
-  
-  .linkframe{
+
+  .linkframe {
     display: flex;
     flex-flow: row wrap;
-    justify-content:center;
+    justify-content: center;
     align-items: flex-start;
   }
 
-  .linkbox{
+  .linkbox {
     margin: 1rem;
-    flex-basis:144px;
+    flex-basis: 144px;
     overflow: hidden;
   }
+
   a {
     font-size: 1.5rem;
-    }
+  }
+
   .linkicon {
     display: block;
     height: auto;
@@ -497,7 +611,7 @@ section {
       width: 10rem;
       height: 10rem;
 
-  }
+    }
 
     img {
       border-radius: 10rem;
@@ -511,7 +625,7 @@ section {
 
 //==========//
 #End {
-  
+
   position: relative;
   height: 100vh;
 
@@ -528,7 +642,8 @@ section {
         height: 80%;
       }
     }
-    h3{
+
+    h3 {
       margin-bottom: 30%;
     }
   }
